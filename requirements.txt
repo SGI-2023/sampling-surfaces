@@ -1,0 +1,6 @@
+gpytoolbox
+matplotlib
+numpy
+scipy
+plotly
+torch

@@ -1,0 +1,4 @@
+from utils.kernels.squared_exponential import squared_exponential_kernel
+from utils.kernels.thin_plate_spline import thin_plate_spline_kernel
+from utils.kernels.gaussian_covariance import apply_gaussian_covariance
+from utils.kernels.thin_plate_spline_covariance import apply_thin_plate_spline_covariance

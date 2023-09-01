@@ -1,0 +1,2 @@
+from utils.visualization.mean_var_plot import gp_mean_variance_plot
+from utils.visualization.normals_mean_var_plot import ngp_mean_variance_plot
