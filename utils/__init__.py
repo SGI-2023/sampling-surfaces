@@ -4,7 +4,12 @@ from utils.kernels import apply_gaussian_covariance
 from utils.kernels import apply_thin_plate_spline_covariance
 from utils.models import GaussianProcess
 from utils.models import NormalsGaussianProcess
+from utils.models import HarmonicNeuralProcess
 from utils.visualization import gp_mean_variance_plot
 from utils.visualization import ngp_mean_variance_plot
 from utils.sampling import data_from_img
 from utils.sampling import sample_surface
+from utils.data import generate_random_rectangle
+from utils.data import generate_pts_from_normals
+from utils.data import RectData
+from utils.np_trainer import NeuralProcessTrainer
