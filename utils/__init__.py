@@ -13,3 +13,4 @@ from utils.data import generate_random_rectangle
 from utils.data import generate_pts_from_normals
 from utils.data import RectData
 from utils.np_trainer import NeuralProcessTrainer
+from utils.data import PointCloudMNISTDataset
