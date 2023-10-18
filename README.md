@@ -43,5 +43,6 @@ docker run --runtime=nvidia --gpus all -p 8888:8888 -it --rm --volume /:/host --
 2. [Neural Process](neural_process.ipynb)
 3. [Neural Process with PointCloudMNIST Dataset](neural_process_mnist.ipynb)
 4. [Attentive Neural Process (Rectangles)](attentive_neural_process.ipynb)
+5. [Attentive Neural Process (MNIST)](anp_mnist.ipynb)
 
 
