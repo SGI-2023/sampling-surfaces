@@ -119,7 +119,7 @@ class LatentModel(nn.Module):
         self._use_deterministic_path = use_deterministic_path
         self._use_lvar = use_lvar
 
-    def forward(self, context_x, context_y, target_x, target_y=None):
+    def forward(self, context_x, context_y, target_x, target_y=None, sample=False):
         num_targets = target_x.size(1)
 
         if self._use_rnn:
@@ -136,10 +136,13 @@ class LatentModel(nn.Module):
         if target_y is not None:  # If training,
             # Get the posterior via the encoder, q(z|s_T)
             dist_post, log_var_post = self._latent_encoder(target_x, target_y)
-            z = dist_post.loc
+            z = dist_post.sample()
         else:  # If testing, target_y is unavailable so it's None
             # Just use prior q(z|s_C), same encoder parameters used to compute samples from it as posterior.
-            z = dist_prior.loc
+            if sample:
+                z = dist_prior.sample()
+            else:
+                z = dist_prior.loc
 
         z = z.unsqueeze(1).repeat(1, num_targets,
                                   1)  # [B, T_target (|T|), H (hidden dim)]
@@ -174,4 +177,4 @@ class LatentModel(nn.Module):
             loss = None
 
         y_pred = dist.rsample() if self.training else dist.loc
-        return y_pred, kl_loss, loss, mse_loss, dist.scale
+        return y_pred, kl_loss, loss, target_x, dist.scale

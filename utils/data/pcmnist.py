@@ -53,6 +53,7 @@ class PointCloudMNISTDataset(datasets.MNIST):
         self.random_seed = random_seed
         self.augment = augment
 
+
     def __getitem__(self, index):
         img, target = super(PointCloudMNISTDataset, self).__getitem__(index)
 
